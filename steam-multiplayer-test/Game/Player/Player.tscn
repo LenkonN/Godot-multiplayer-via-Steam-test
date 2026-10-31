@@ -1,0 +1,45 @@
+[gd_scene format=3 uid="uid://csbl48eu4q482"]
+
+[ext_resource type="Script" uid="uid://di32yuv2xm4ll" path="res://Game/Player/Player.cs" id="1_e0wbv"]
+[ext_resource type="Texture2D" uid="uid://dwah2mirxqtrk" path="res://icon.svg" id="2_4672b"]
+[ext_resource type="Script" uid="uid://v7pphomh2xl6" path="res://Game/Player/NetPlayer.cs" id="3_fd82q"]
+
+[sub_resource type="SceneReplicationConfig" id="SceneReplicationConfig_fd82q"]
+properties/0/path = NodePath(".:position")
+properties/0/spawn = true
+properties/0/replication_mode = 1
+
+[node name="Player" type="CharacterBody2D" unique_id=229981506 node_paths=PackedStringArray("_gameNickname", "_steamNickname", "NetPlayer")]
+script = ExtResource("1_e0wbv")
+_gameNickname = NodePath("Sprite2D/Game")
+_steamNickname = NodePath("Sprite2D/Steam")
+NetPlayer = NodePath("NetPlayer")
+
+[node name="Sprite2D" type="Sprite2D" parent="." unique_id=2110587853]
+texture = ExtResource("2_4672b")
+
+[node name="Game" type="Label" parent="Sprite2D" unique_id=1766509386]
+custom_minimum_size = Vector2(384, 0)
+offset_left = -190.0
+offset_top = 74.0
+offset_right = 194.0
+offset_bottom = 97.0
+text = "GAME NICKNAME: TESTNAME"
+horizontal_alignment = 1
+
+[node name="Steam" type="Label" parent="Sprite2D" unique_id=1574607709]
+custom_minimum_size = Vector2(384, 0)
+offset_left = -190.0
+offset_top = 97.0
+offset_right = 194.0
+offset_bottom = 120.0
+text = "STEAM NICKNAME: STEAMTESTNAME"
+horizontal_alignment = 1
+
+[node name="NetPlayer" type="Node" parent="." unique_id=745324871 node_paths=PackedStringArray("_player")]
+script = ExtResource("3_fd82q")
+_player = NodePath("..")
+
+[node name="MultiplayerSynchronizer" type="MultiplayerSynchronizer" parent="." unique_id=912125277]
+replication_config = SubResource("SceneReplicationConfig_fd82q")
+visibility_update_mode = 1

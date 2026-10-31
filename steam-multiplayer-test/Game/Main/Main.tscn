@@ -1,0 +1,30 @@
+[gd_scene format=3 uid="uid://w3qrr3okbowh"]
+
+[ext_resource type="Script" uid="uid://c8obgptd47c2d" path="res://Game/Main/Main.cs" id="1_comj3"]
+[ext_resource type="PackedScene" uid="uid://c6r22nlybgci4" path="res://Game/Menu/Menu.tscn" id="2_0s15c"]
+[ext_resource type="PackedScene" uid="uid://bx564s57udmjf" path="res://Game/Game/Game.tscn" id="3_cbgkf"]
+[ext_resource type="Script" uid="uid://8qsug1t3b4fr" path="res://Game/Main/NetworkConnectManager.cs" id="4_cbgkf"]
+[ext_resource type="Script" uid="uid://qg25b6lt3w6v" path="res://Game/Main/NetworkManager.cs" id="5_d0vy6"]
+[ext_resource type="Script" uid="uid://x5b3yjsfcx0q" path="res://Game/Main/NetworkMessageManager.cs" id="6_o688p"]
+[ext_resource type="Script" uid="uid://c2idr8u8rnru" path="res://Game/Main/SteamConnectManager.cs" id="7_o688p"]
+
+[node name="Main" type="Node" unique_id=236241035 node_paths=PackedStringArray("_networkConnectManager", "_networkManager", "_networkMessageManager", "_steamConnectManager")]
+script = ExtResource("1_comj3")
+_menuScene = ExtResource("2_0s15c")
+_gameScene = ExtResource("3_cbgkf")
+_networkConnectManager = NodePath("NetworkConnectManager")
+_networkManager = NodePath("NetworkManager")
+_networkMessageManager = NodePath("NetworkMessageManager")
+_steamConnectManager = NodePath("SteamConnectManager")
+
+[node name="NetworkConnectManager" type="Node" parent="." unique_id=541047881]
+script = ExtResource("4_cbgkf")
+
+[node name="NetworkManager" type="Node" parent="." unique_id=1978699325]
+script = ExtResource("5_d0vy6")
+
+[node name="NetworkMessageManager" type="Node" parent="." unique_id=1803040905]
+script = ExtResource("6_o688p")
+
+[node name="SteamConnectManager" type="Node" parent="." unique_id=944745774]
+script = ExtResource("7_o688p")

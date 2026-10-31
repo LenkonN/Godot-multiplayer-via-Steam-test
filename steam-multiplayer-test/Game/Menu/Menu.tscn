@@ -1,0 +1,78 @@
+[gd_scene format=3 uid="uid://c6r22nlybgci4"]
+
+[ext_resource type="Script" uid="uid://cyob0aiyuxr85" path="res://Game/Menu/Menu.cs" id="1_6k6up"]
+
+[node name="Menu" type="Control" unique_id=1048229551 node_paths=PackedStringArray("_gameNicknameLine", "_ipServer", "_buttonClient", "_buttonServer", "_buttonSingle", "_buttomSteamServer")]
+layout_mode = 3
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+script = ExtResource("1_6k6up")
+_gameNicknameLine = NodePath("MarginContainer/VBoxContainer/HBoxContainer/LineEdit")
+_ipServer = NodePath("MarginContainer/VBoxContainer/HBoxContainer2/LineEdit")
+_buttonClient = NodePath("MarginContainer/VBoxContainer/ClientButton")
+_buttonServer = NodePath("MarginContainer/VBoxContainer/ServerButton")
+_buttonSingle = NodePath("MarginContainer/VBoxContainer/SoloButton")
+_buttomSteamServer = NodePath("MarginContainer/VBoxContainer/SteamServerButton")
+
+[node name="MarginContainer" type="MarginContainer" parent="." unique_id=1489929375]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+theme_override_constants/margin_left = 50
+theme_override_constants/margin_top = 50
+theme_override_constants/margin_right = 50
+theme_override_constants/margin_bottom = 50
+
+[node name="VBoxContainer" type="VBoxContainer" parent="MarginContainer" unique_id=1254704423]
+layout_mode = 2
+theme_override_constants/separation = 40
+alignment = 1
+
+[node name="HBoxContainer" type="HBoxContainer" parent="MarginContainer/VBoxContainer" unique_id=299937060]
+layout_mode = 2
+alignment = 1
+
+[node name="Label" type="Label" parent="MarginContainer/VBoxContainer/HBoxContainer" unique_id=1330154563]
+layout_mode = 2
+text = "Game nickname:"
+
+[node name="LineEdit" type="LineEdit" parent="MarginContainer/VBoxContainer/HBoxContainer" unique_id=2067697685]
+custom_minimum_size = Vector2(256, 0)
+layout_mode = 2
+alignment = 1
+
+[node name="HBoxContainer2" type="HBoxContainer" parent="MarginContainer/VBoxContainer" unique_id=669705156]
+layout_mode = 2
+alignment = 1
+
+[node name="Label" type="Label" parent="MarginContainer/VBoxContainer/HBoxContainer2" unique_id=2017066026]
+layout_mode = 2
+text = "SERVER IP: "
+
+[node name="LineEdit" type="LineEdit" parent="MarginContainer/VBoxContainer/HBoxContainer2" unique_id=1180799332]
+custom_minimum_size = Vector2(256, 0)
+layout_mode = 2
+text = "127.0.0.1"
+alignment = 1
+
+[node name="SoloButton" type="Button" parent="MarginContainer/VBoxContainer" unique_id=227773606]
+layout_mode = 2
+text = "SOLO BUTTON"
+
+[node name="ClientButton" type="Button" parent="MarginContainer/VBoxContainer" unique_id=32557326]
+layout_mode = 2
+text = "CLIENT BUTTON (ENet Godot - Local Multiplayer)"
+
+[node name="ServerButton" type="Button" parent="MarginContainer/VBoxContainer" unique_id=1289895035]
+layout_mode = 2
+text = "CREATE SERVER (ENet Godot - Local Multiplayer)"
+
+[node name="SteamServerButton" type="Button" parent="MarginContainer/VBoxContainer" unique_id=1959347582]
+layout_mode = 2
+text = "CREATE STEAM SERVER (Steam Multiplayer)"

@@ -1,0 +1,18 @@
+[gd_scene format=3 uid="uid://bx564s57udmjf"]
+
+[ext_resource type="Script" uid="uid://vllqmjs10g0l" path="res://Game/Game/Game.cs" id="1_qtw4q"]
+[ext_resource type="Script" uid="uid://yjdlsg5g355r" path="res://Game/Game/NetGame.cs" id="2_2r57w"]
+[ext_resource type="PackedScene" uid="uid://csbl48eu4q482" path="res://Game/Player/Player.tscn" id="2_774ph"]
+
+[node name="Game" type="Node2D" unique_id=1014303685 node_paths=PackedStringArray("_spawnPos", "_netGame")]
+script = ExtResource("1_qtw4q")
+_playerScene = ExtResource("2_774ph")
+_spawnPos = NodePath("SpawnPos")
+_netGame = NodePath("NetGame")
+
+[node name="SpawnPos" type="Marker2D" parent="." unique_id=1468233474]
+position = Vector2(584, 311)
+
+[node name="NetGame" type="Node" parent="." unique_id=159959249 node_paths=PackedStringArray("_game")]
+script = ExtResource("2_2r57w")
+_game = NodePath("..")
